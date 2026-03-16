@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網格地圖產生器</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="header">
+            <h1>網格地圖產生器</h1>
+            <p class="subtitle">設定大小為 nxn 的地圖，指定起點、終點與障礙物</p>
+        </header>
+        
+        <main class="main-content">
+            <div class="control-panel">
+                <div class="input-group">
+                    <label for="grid-size">維度 n (5~9)：</label>
+                    <input type="number" id="grid-size" min="5" max="9" value="5">
+                </div>
+                <div class="btn-group">
+                    <button id="generate-btn" class="secondary-btn">重置網格</button>
+                    <button id="evaluate-btn" class="primary-btn" disabled>策略評估</button>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-indicator">
+                    <span id="state-dot" class="dot waiting"></span>
+                    <p id="status-message">請點擊「重置網格」以開始設定。</p>
+                </div>
+                <div class="obstacle-info">
+                    <p>剩餘可設定障礙物：<span id="obstacle-count" class="badge">0</span></p>
+                </div>
+            </div>
+
+            <div class="grid-wrapper">
+                <div id="grid-container" class="grid-container">
+                    <!-- 網格將透過 JavaScript 動態生成 -->
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item"><span class="legend-color start-color"></span> 起點</div>
+                <div class="legend-item"><span class="legend-color end-color"></span> 終點</div>
+                <div class="legend-item"><span class="legend-color obstacle-color"></span> 障礙物</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
